@@ -3,6 +3,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
     create_table :products do |t|
       t.integer :volume, null: false
       t.column :container_material, :integer, null: false
+      t.timestamps
     end
   end
 end
