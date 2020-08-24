@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_164050) do
+ActiveRecord::Schema.define(version: 2020_08_23_221114) do
+
+  create_table "packages", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "quantity", null: false
+    t.integer "price", null: false
+    t.index ["product_id"], name: "index_packages_on_product_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.integer "volume", null: false
     t.integer "container_material", null: false
   end
 
+  add_foreign_key "packages", "products"
 end
